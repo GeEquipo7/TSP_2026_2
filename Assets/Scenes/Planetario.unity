@@ -5367,12 +5367,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1400664179}
         m_TargetAssemblyTypeName: EventUI, Assembly-CSharp
-        m_MethodName: CycleObject
-        m_Mode: 1
+        m_MethodName: CycleText
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5809,8 +5809,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1400664179}
         m_TargetAssemblyTypeName: EventUI, Assembly-CSharp
-        m_MethodName: ChangeSceneByIndex
-        m_Mode: 3
+        m_MethodName: ReloadCurrentScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6078,12 +6078,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1400664179}
         m_TargetAssemblyTypeName: EventUI, Assembly-CSharp
-        m_MethodName: CycleObject
-        m_Mode: 1
+        m_MethodName: CycleText
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: -1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -6277,7 +6277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &589191405
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6766,7 +6766,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -7340,7 +7340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1400469651
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7434,8 +7434,13 @@ MonoBehaviour:
   - {fileID: 1803985196}
   - {fileID: 1400469650}
   currentIndex: 0
-  mensajesInstrucciones: []
-  textMeshProUGUI: {fileID: 0}
+  mensajesInstrucciones:
+  - Mensaje1
+  - Mensaje2
+  - Mensaje3
+  - Mensaje4
+  - Mensaje5
+  textMeshProUGUI: {fileID: 870667691}
 --- !u!4 &1400664180
 Transform:
   m_ObjectHideFlags: 0
@@ -8102,7 +8107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1803985197
 RectTransform:
   m_ObjectHideFlags: 0

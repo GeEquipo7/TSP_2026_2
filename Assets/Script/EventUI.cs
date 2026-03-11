@@ -4,6 +4,7 @@ using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Rendering.Universal;
 
 public class EventUI : MonoBehaviour
 {
@@ -42,10 +43,10 @@ public class EventUI : MonoBehaviour
     }
 
     //Metodo para cambiar entre paneles 
-    public void CycleObject() 
+    public void CycleObject(int direction) 
     {
        //Modulo me permite establecer un rango (si la divicion es perfecta), incrementa el indice y vuelve al principio
-       currentIndex = (currentIndex + 1) % listaInstrucciones.Count;
+       currentIndex = (currentIndex + direction + listaInstrucciones.Count) % listaInstrucciones.Count;
 
         //Actualizar la visibilidad
         UpdateVisibility();
@@ -54,16 +55,25 @@ public class EventUI : MonoBehaviour
     //Metodo para actualizar el texto mostrado
     private void UpdateText() 
     {
-        if (mensajesInstrucciones.Count > 0 ) 
+        //Si tienes mensajes y un objeto donde ponerlo vas actualizar el texto
+        if (mensajesInstrucciones.Count > 0 && textMeshProUGUI != null) 
         {
-            
+            textMeshProUGUI.text = mensajesInstrucciones[currentIndex];
         }
+    }
+    public void CycleText(int direction)
+    {
+        //Modulo me permite establecer un rango (si la divicion es perfecta), incrementa el indice y vuelve al principio
+        currentIndex = (currentIndex + direction + mensajesInstrucciones.Count) % mensajesInstrucciones.Count;
+
+        //Actualizar la visibilidad
+        UpdateText();
     }
 
 
 
     //Metodo para cambiear de escena (indice y nombre)
-                     //INDICE
+    //INDICE
     public void ChangeSceneByIndex(int sceneIndex) 
     {
         SceneManager.LoadScene(sceneIndex);
@@ -72,6 +82,14 @@ public class EventUI : MonoBehaviour
     public void ChangeSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    //Metodo para cambiar la escena actual 
+    public void ReloadCurrentScene() 
+    {
+        //Guarda en un variable la escena actual en la que nos encontramos en una variable del tipo escena
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
     }
 
     //Metodo para salir de la aplicacion
